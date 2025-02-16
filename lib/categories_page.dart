@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:oinkvault/bottom_menu_bar.dart';
 
 class CategoriesPage extends StatelessWidget {
   const CategoriesPage({super.key});
@@ -32,9 +31,8 @@ class CategoriesPage extends StatelessWidget {
             ),
           ],
         ),
-        bottomNavigationBar: BottomMenuBar(),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
+          child: Icon(Icons.menu),
           onPressed: () {},
         ),
       ),

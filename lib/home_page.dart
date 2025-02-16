@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:oinkvault/bottom_menu_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -128,7 +127,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: BottomMenuBar(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color(0xFFE1CFB9),
         foregroundColor: Color.fromARGB(255, 97, 82, 63),

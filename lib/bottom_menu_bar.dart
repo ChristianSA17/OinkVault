@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 
 class BottomMenuBar extends StatefulWidget {
-  const BottomMenuBar({super.key});
+  const BottomMenuBar(
+      {super.key,
+      required this.selectedIndex,
+      required this.onItemTappped}); //Gets updated selected index value and the onItemTapped function from the MainScreenDisplay
+
+  final int selectedIndex; //stores selected index from MainScreenDisplay
+  final Function(int) onItemTappped; //stores function from MainScreenDisplay
 
   @override
   State<BottomMenuBar> createState() => _BottomMenuBarState();
 }
 
 class _BottomMenuBarState extends State<BottomMenuBar> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
-      onDestinationSelected: (int index) {
-        setState(() {
-          _selectedIndex = index;
-        });
-      },
+      onDestinationSelected: widget
+          .onItemTappped, //triggers the onItemTapped function in the main.dart
       indicatorColor: Color(0xFFE1CFB9),
-      selectedIndex: _selectedIndex,
+      selectedIndex: widget.selectedIndex, //updates the higlighted active tab
       destinations: [
         NavigationDestination(
           selectedIcon: Icon(Icons.home),

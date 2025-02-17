@@ -48,11 +48,23 @@ class _CalculatorPageState extends State<CalculatorPage> {
               gridDelegate:
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
               itemBuilder: (BuildContext context, int index) {
-                return CalcButton(
-                  buttonText: buttons[index],
-                  color: Colors.deepOrange,
-                  textColor: Colors.white,
-                );
+                if (index == 0 || index == 1) {
+                  return CalcButton(
+                    buttonText: buttons[index],
+                    color: const Color.fromARGB(255, 24, 24, 24),
+                    textColor: Color(0xFFE1CFB9),
+                  );
+                } else {
+                  return CalcButton(
+                    buttonText: buttons[index],
+                    color: isOperator(buttons[index])
+                        ? Color(0xFFE1CFB9)
+                        : Color.fromARGB(255, 51, 51, 51),
+                    textColor: isOperator(buttons[index])
+                        ? Colors.black
+                        : Colors.white,
+                  );
+                }
               },
             ),
           ),
@@ -60,6 +72,13 @@ class _CalculatorPageState extends State<CalculatorPage> {
       ),
     );
   }
+}
+
+bool isOperator(String x) {
+  if (x == '%' || x == '/' || x == 'x' || x == '-' || x == '+' || x == '=') {
+    return true;
+  }
+  return false;
 }
 
 class CalcButton extends StatelessWidget {
@@ -85,7 +104,10 @@ class CalcButton extends StatelessWidget {
           child: Center(
             child: Text(
               buttonText,
-              style: TextStyle(color: textColor),
+              style: TextStyle(
+                color: textColor,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),

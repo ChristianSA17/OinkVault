@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oinkvault/bottom_menu_bar.dart';
+import 'package:oinkvault/calculator_page.dart';
 import 'package:oinkvault/categories_page.dart';
 import 'package:oinkvault/home_page.dart';
 
@@ -36,6 +37,8 @@ class _MainScreenDisplayState extends State<MainScreenDisplay> {
   final List _pages = [
     HomePage(), // index 0
     CategoriesPage(), // index 1
+    (),
+    CalculatorPage(),
   ];
 
   void _onItemTapped(int index) {

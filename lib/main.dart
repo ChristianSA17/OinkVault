@@ -3,6 +3,7 @@ import 'package:oinkvault/bottom_menu_bar.dart';
 import 'package:oinkvault/calculator_page.dart';
 import 'package:oinkvault/categories_page.dart';
 import 'package:oinkvault/home_page.dart';
+import 'package:oinkvault/notes_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,7 @@ class _MainScreenDisplayState extends State<MainScreenDisplay> {
   final List _pages = [
     HomePage(), // index 0
     CategoriesPage(), // index 1
-    (),
+    NotesPage(),
     CalculatorPage(),
   ];
 

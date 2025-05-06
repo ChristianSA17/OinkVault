@@ -14,20 +14,20 @@ var userAnswer = '';
 class _CalculatorPageState extends State<CalculatorPage> {
   final List<String> buttons = [
     'AC',
-    'C',
+    'DEL',
     '%',
     '/',
-    '9',
-    '8',
     '7',
+    '8',
+    '9',
     'x',
-    '6',
-    '5',
     '4',
+    '5',
+    '6',
     '-',
-    '3',
-    '2',
     '1',
+    '2',
+    '3',
     '+',
     '0',
     '.',
@@ -118,6 +118,21 @@ class _CalculatorPageState extends State<CalculatorPage> {
                   );
 
                   // Other buttons
+                } else if (index == 18) {
+                  return CalcButton(
+                    buttonTapped: () {
+                      setState(() {
+                        userInput += userAnswer;
+                      });
+                    },
+                    buttonText: buttons[index],
+                    color: isOperator(buttons[index])
+                        ? Color(0xFFE1CFB9)
+                        : Color.fromARGB(255, 51, 51, 51),
+                    textColor: isOperator(buttons[index])
+                        ? Colors.black
+                        : Colors.white,
+                  );
                 } else {
                   return CalcButton(
                     buttonTapped: () {
@@ -182,9 +197,9 @@ class CalcButton extends StatelessWidget {
     return GestureDetector(
       onTap: buttonTapped,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(5.0),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(35),
           child: Container(
             color: color,
             child: Center(
